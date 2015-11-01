@@ -15,12 +15,12 @@ double compute_pi(size_t dt)
 
 int main(void)
 {
-	time_t t1,t2;
+	clock_t start_time, end_time;
 	double pi;
-	t1 = time(NULL);		
+	start_time = clock();		
 	pi = compute_pi(128000000);
-	t2 = time(NULL);
-	printf("%f\nTime : %f\n", pi, (double) difftime(t2,t1));
+	end_time = clock();
+	printf("%f\nTime : %f\n", pi, (double)(end_time-start_time)/CLOCKS_PER_SEC);
 	return 0;
 }
 
